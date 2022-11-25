@@ -1,0 +1,18 @@
+<div class="bg-slate-100/50 rounded-xl p-16 max-w-7xl m-auto text-gray-700">
+  <h1 class="font-bold text-3xl">Create a new Event</h1>
+  <%= form_with scope: :event, url: event_index_path, class: "flex justify-center flex-col mt-8 align-middle m-auto gap-4" do |f| %>
+    <%= f.label :title, class: "font-medium text-gray-600" %>
+    <%= f.text_field :title, class: "rounded-md bg-transparent border-indigo-300 border-2" %>
+    <div class="field flex align-middle mb-3 mt-5 gap-3">
+      <%= f.label :date, class: "font-medium my-auto text-gray-600 font-semibold" %>
+      <%= f.datetime_field :date , class: 'rounded-sm bg-transparent border-indigo-300 border-2' %>
+    </div>
+    <%= f.label :description, class: "font-medium text-gray-600" %>
+    <%= text_area(:event, :description, cols: 40, rows: 15, class: 'rounded-md bg-transparent border-indigo-300 border-2') %>
+    <div class="field flex align-middle mt-3 gap-3">
+      <%= f.label "Is this a public event?", class: "font-medium text-gray-600 font-semibold" %>
+      <%= f.check_box :public_event, class: 'rounded-sm bg-transparent border-indigo-300 border-2 my-auto' %>
+    </div>
+    <%= f.submit "Share Event", class: "transform rounded-md bg-indigo-600/95 px-5 py-3 font-medium text-white transition-colors hover:bg-indigo-700"%>
+  <% end %>
+</div>
